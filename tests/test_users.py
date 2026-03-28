@@ -34,8 +34,8 @@ class TestUsers:
             "email": "Sincere_1@apppril.biz"
         }
         response = self.service.create(payload)
+        logger.info(response.json())
 
-        # Обычно API возвращает 201 Created при создании
         assert response.status_code in [200, 201]
         assert response.json()["data"]["name"] == payload["name"]
         assert "id" in response.json()["data"]
@@ -50,13 +50,14 @@ class TestUsers:
             "email": "updated@example.com"
         }
         response = self.service.update(user_id, payload)
+        logger.info(response.json())
 
         assert response.status_code == 200
         assert response.json()["data"]["name"] == "Updated Name"
         assert response.json()["data"]["email"] == "updated@example.com"
 
     @allure.title("DELETE: Удаление пользователя с ID {user_id}")
-    @pytest.mark.parametrize("user_id", [22])
+    @pytest.mark.parametrize("user_id", [23])
     def test_delete_user(self, user_id):
         response = self.service.delete(user_id)
         assert response.status_code in [200, 202, 204]

@@ -67,7 +67,7 @@ class TestUsers:
 
     @allure.title("DELETE: Удаление поста")
     def test_delete_post(self):
-        response = self.service.delete(12)
+        response = self.service.delete(22)
         assert response.status_code in [200, 204]
 
 
