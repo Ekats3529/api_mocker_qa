@@ -30,8 +30,8 @@ class TestUsers:
     def test_create_user(self):
         payload = {
             "name": "Leanne Graham",
-            "username": "Bret__GR",
-            "email": "Sincere_1@apppril.biz"
+            "username": "Bret__G",
+            "email": "TTTTT_1@apppril.com"
         }
         response = self.service.create(payload)
         logger.info(response.json())
@@ -46,7 +46,7 @@ class TestUsers:
         payload = {
             "id": user_id,
             "name": "Updated Name",
-            "username": "updated_user",
+            "username": "updated_user_1",
             "email": "updated@example.com"
         }
         response = self.service.update(user_id, payload)
@@ -57,7 +57,7 @@ class TestUsers:
         assert response.json()["data"]["email"] == "updated@example.com"
 
     @allure.title("DELETE: Удаление пользователя с ID {user_id}")
-    @pytest.mark.parametrize("user_id", [23])
+    @pytest.mark.parametrize("user_id", [25])
     def test_delete_user(self, user_id):
         response = self.service.delete(user_id)
         assert response.status_code in [200, 202, 204]

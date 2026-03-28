@@ -48,7 +48,7 @@ class TestUsers:
 
     @allure.title("GET: Получение лайков поста")
     def test_get_post_likes(self):
-        post_id = 12
+        post_id = 13
         response = self.service.get_likes(post_id)
 
         assert response.status_code == 200
@@ -58,7 +58,7 @@ class TestUsers:
     @allure.title("POST: Добавление лайка посту (анонимно и от юзера)")
     @pytest.mark.parametrize("user_id", [None, 1])
     def test_add_like_to_post(self, user_id):
-        post_id = 12
+        post_id = 13
         response = self.service.add_like(post_id, user_id=user_id)
 
         assert response.status_code in [200, 201]
@@ -67,7 +67,7 @@ class TestUsers:
 
     @allure.title("DELETE: Удаление поста")
     def test_delete_post(self):
-        response = self.service.delete(22)
+        response = self.service.delete(23)
         assert response.status_code in [200, 204]
 
 

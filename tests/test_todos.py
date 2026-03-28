@@ -73,7 +73,7 @@ class TestTodos:
         assert response.json()["data"]["completed"] is True
 
     @allure.title("DELETE: Удаление задачи")
-    @pytest.mark.parametrize("todo_id", [29])
+    @pytest.mark.parametrize("todo_id", [32])
     def test_delete_todo(self, todo_id):
         response = self.service.delete(todo_id)
         assert response.status_code in [200, 204]

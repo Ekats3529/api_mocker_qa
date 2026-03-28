@@ -35,7 +35,7 @@ class TestComments:
             assert name_query.lower() in res_body["data"][0]["name"].lower()
 
     @allure.title("GET: Получение комментария с ID {comment_id}")
-    @pytest.mark.parametrize("comment_id", [64])
+    @pytest.mark.parametrize("comment_id", [61])
     def test_get_comments_by_id(self, comment_id):
         response = self.service.get_by_id(comment_id)
         assert response.status_code == 200
@@ -69,7 +69,7 @@ class TestComments:
         assert response.json()["data"]["body"] == payload["body"]
 
     @allure.title("DELETE: Удаление комментария")
-    @pytest.mark.parametrize("comment_id", [64])
+    @pytest.mark.parametrize("comment_id", [71])
     def test_delete_comment(self, comment_id):
         response = self.service.delete(comment_id)
         assert response.status_code in [200, 204]
