@@ -19,7 +19,7 @@ class BaseService(APIClient):
         return self.request("GET", f"{self.endpoint}/{item_id}")
 
     def create(self, data):
-        return self.request("POST", self.endpoint, json=data)
+        return self.request("POST", f"{self.endpoint}", json=data)
 
     def update(self, item_id, data):
         return self.request("PUT", f"{self.endpoint}/{item_id}", json=data)
